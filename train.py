@@ -149,16 +149,16 @@ def train(args):
 if __name__ == "__main__":
     args = parse_args()
     # 判断有没有gpu
-    args.dataset_train='TieredImageNet' #['MiniImageNet', 'TieredImageNet', 'FC100', 'CIFAR-FS','CUB''ISIC','EuroSAT','chestx','CropDiseases']
-    args.dataset_test='TieredImageNet'
-    args.backbone="Res12"## conv4,Res12
+    args.dataset_train='MiniImageNet' #['MiniImageNet', 'TieredImageNet', 'FC100', 'CIFAR-FS','CUB''ISIC','EuroSAT','chestx','CropDiseases']
+    args.dataset_test='MiniImageNet'
+    args.backbone="conv4"## conv4,Res12
     args.task_num=256
     args.batch_size=32#64
     args.pmax = 0.6
-    args.n_epochs=400
+    args.n_epochs=100
     args.cluster_num = 512
     args.exp="_{:}_pmax{:}_cluster_num{:}".format(args.n_epochs,args.pmax,args.cluster_num)
     args.eval_interval=5
-    args.con='epoch-last.pt'
+    args.con='E0'
     set_gpu(args.gpu)
     train(args)
